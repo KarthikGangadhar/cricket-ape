@@ -23,7 +23,14 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  # set-up for my ubuntu rake db, comment while working with mac
+  host: localhost
+  database: pgapp_development
+  username: pguser
+  password: pguser_password
+  
+  # set-up for my mac rake db, comment while working with ubuntu
+  # database: myapp_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,8 +64,13 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: myapp_test
-
+  # set-up for my ubuntu rake db, comment while working with mac
+  host: localhost
+  database: pgapp_test
+  username: pguser
+  password: pguser_password
+  # set-up for my mac rake db, comment while working with ubuntu
+  # database: 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.

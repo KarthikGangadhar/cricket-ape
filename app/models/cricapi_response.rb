@@ -20,7 +20,7 @@ module CricApi
         :cricket => Typhoeus::Request.new("https://apecricket.herokuapp.com/api/cricket",
                                 method: :get,
                                 headers: { 'ContentType' => "application/json"}),
-        :matches => Typhoeus::Request.new("http://cricketlive.herokuapp.com/api/matches",
+        :matches => Typhoeus::Request.new("http://apecricket.herokuapp.com/api/matches",
                                 method: :get,
                                 headers: { 'ContentType' => "application/json"})
       }
@@ -105,7 +105,7 @@ def getResponseforBallbyBall(unique_id)
         api_requests = {}
         
         unique_ids.each do |id|
-          api_requests[id] = Typhoeus::Request.new("http://cricketlive.herokuapp.com/api/cricketScore",
+          api_requests[id] = Typhoeus::Request.new("http://apecricket.herokuapp.com/api/cricketScore",
                                 method: :post,
                                 headers: { 'ContentType' => "application/json/"},
                                 body: {unique_id: id.to_s } )

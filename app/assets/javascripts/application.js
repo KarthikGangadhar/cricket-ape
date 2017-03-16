@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require contact_me.js
+//= jqBootstrapValidation.js
+//= agency.js
+//= agency.min.js
+//= cable.js

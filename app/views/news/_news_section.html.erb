@@ -38,8 +38,8 @@
 			<h3>Cricket News</h3>
 		</div>
 		<div class="row col-sm-10 col-sm-offset-1 bg-light-gray" id="news_id">
-			<% news = @news['data']%>
-			<% news['data'].each do |type| %>
+			<% if news.present? && news_count.present? %>
+			<% news.each do |type| %>
 
 			<div class="cl-news-box bg-light-gray">
 				<div class="cl-nws-lst">
@@ -51,11 +51,20 @@
 				</div>
 
 			</div>
-			<div id="news_load_more" data-news-list="<%= @news['data'].to_json %>"></div>
+			<div id="news_load_more" data-news-list="<%= news.to_json %>"></div>	
 			<% end %>
 			<div align="center" >
 			<button type="button" id="prop_load_more" class="btn btn-plain load-more-button">Load More News</button>
-			</div>	
+			</div>
+			<% else %>
+			<div class="cl-news-box bg-light-gray" align="center">
+				<div class="cl-nws-lst" align="center">
+					<b class="cl-nws-ttl"><b class="cl-nws-hdln-ancr"
+					title="newsnot found" >News not present. please visit later</b></b>
+				</div>
+
+			</div>
+			<% end %>	
 		</div>
 	</div>
 </section>

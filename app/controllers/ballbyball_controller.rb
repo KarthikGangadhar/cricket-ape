@@ -9,8 +9,11 @@ class BallbyballController < ApplicationController
     unique_id =  params[:unique_id]
     cricApires = CricApi::Request.new('https://apecricket.herokuapp.com', 0)
       request = CricApi::ProfessionalProfile.new().getResponseforBallbyBall(unique_id)
-      @ballbyball = request[:ballbyball]
-      @cricketScore = request[:cricketScore]
+      # @ballbyball = request[:ballbyball]
+      # @cricketScore = request[:cricketScore]
+      @cricketScore = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
+      @ballbyball = cricApires.jsonRead('./lib/cricket_api/json_data/ballbyball.json')
+    
       set_seo_content
    end
   

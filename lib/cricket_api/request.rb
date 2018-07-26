@@ -6,7 +6,7 @@ module CricApi
     include HTTParty
     base_uri 'https://apecricket.herokuapp.com'
     def initialize(service, page)
-      @options = { query: {site: service, page: page} }
+      @options = { }
     end
 
     def cricket

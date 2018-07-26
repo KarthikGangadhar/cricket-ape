@@ -10,23 +10,23 @@ module CricApi
     end
 
     def cricket
-      self.class.get("/api/cricket", @options)
+      self.class.get("/api/cricket?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1", @options)
     end
 
     def matches
-      self.class.get("/api/matches", @options)
+      self.class.get("/api/matches?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1", @options)
     end
 
     def matchCalendar
-      self.class.get("/api/matchCalendar", @options)
+      self.class.get("/api/matchCalendar?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1", @options)
     end
 
     def getNews
-      self.class.get("/api/news", @options)
+      self.class.get("/api/news?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1", @options)
     end
 
     def cricketScore(id)
-      self.class.post("/api/cricketScore",
+      self.class.post("/api/cricketScore?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :unique_id => id
       }
@@ -34,7 +34,7 @@ module CricApi
     end
 
     def playerStats(id)
-      self.class.post("/api/playerStats",
+      self.class.post("/api/playerStats?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :pid => id
       }
@@ -42,7 +42,7 @@ module CricApi
     end
 
     def ballByball(id)
-      self.class.post("/api/ballByBall",
+      self.class.post("/api/ballByBall?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :unique_id => id
       }
@@ -50,7 +50,7 @@ module CricApi
     end
 
     def commentry(id)
-      self.class.post("/api/commentry",
+      self.class.post("/api/commentry?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :unique_id => id
       }
@@ -58,7 +58,7 @@ module CricApi
     end
 
     def news(id)
-      self.class.post("/api/news",
+      self.class.post("/api/news?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :unique_id => id
       }
@@ -66,7 +66,7 @@ module CricApi
     end
 
     def score(id)
-      self.class.post("/api/score",
+      self.class.post("/api/score?api_key=yiPB2mqlqdNnPa57Vs8P8S74DXk1",
       :body => {
         :unique_id => id
       }
@@ -93,13 +93,10 @@ module CricApi
       
       live_updates['data']['matches'].each do |update|
         data = match_update['data']['data']
-        # binding.pry
         for item in data 
-          # binding.pry         
           if item['unique_id'] == update['unique_id']
             update['title'] = item['title']
             update['description'] = item['description']
-            # binding.pry
           break;
           end
         end
